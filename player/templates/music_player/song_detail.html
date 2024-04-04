@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>{{ song.title }}</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <h1>{{ song.title }}</h1>
-  <p>Artist: {{ song.artist }}</p>
-  <p>Album: {{ song.album }}</p>
-  </body>
+<body class="bg-gray-800 text-white">
+  <div class="container mx-auto px-4 py-4">
+    <h1 class="text-2xl font-bold mb-2">{{ song.title }}</h1>
+    {% if song.artist %}
+      <p class="text-gray-400 mb-4">By {{ song.artist }}</p>
+    {% endif %}
+    {% if song.album %}
+      <p class="text-gray-400 mb-4">Album: {{ song.album }}</p>
+    {% endif %}
+  </div>
+</body>
 </html>
