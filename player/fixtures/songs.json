@@ -1,0 +1,21 @@
+[
+    {
+      "model": "player.Song",
+      "pk": 1,
+      "fields": {
+        "title": "Bohemian Rhapsody",
+        "artist": "Queen",
+        "album": "A Night at the Opera"
+      }
+    },
+    {
+      "model": "player.Song",
+      "pk": 2,
+      "fields": {
+        "title": "Imagine",
+        "artist": "John Lennon",
+        "album": "Imagine"
+      }
+    }
+  ]
+  
