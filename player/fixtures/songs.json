@@ -1,21 +1,12 @@
 [
-    {
-      "model": "player.Song",
-      "pk": 1,
-      "fields": {
-        "title": "Bohemian Rhapsody",
-        "artist": "Queen",
-        "album": "A Night at the Opera"
-      }
-    },
-    {
-      "model": "player.Song",
-      "pk": 2,
-      "fields": {
-        "title": "Imagine",
-        "artist": "John Lennon",
-        "album": "Imagine"
-      }
+  {
+    "model": "player.song",
+    "pk": 1,
+    "fields": {
+      "title": "Avengers Theme",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "song_file": "music/avengers.mp3"
     }
-  ]
-  
+  }
+]
