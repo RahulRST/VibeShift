@@ -20,8 +20,10 @@ from django.urls import path, include
 
 from django.conf.urls.static import static
 from VibeShift import settings
+from player import views
 
 urlpatterns = [
+  path('', views.home, name='home'),
   path('music/', include('player.urls')),  # Include app URLs with a prefix 'music/'
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

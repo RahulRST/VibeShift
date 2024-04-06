@@ -8,5 +8,25 @@
       "album": "A Night at the Opera",
       "song_file": "music/avengers.mp3"
     }
+  },
+  {
+    "model": "player.song",
+    "pk": 2,
+    "fields": {
+      "title": "We will rock you",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "song_file": "music/rock.mp3"
+    }
+  },
+  {
+    "model": "player.song",
+    "pk": 3,
+    "fields": {
+      "title": "Joker BGM",
+      "artist": "Queen",
+      "album": "A Night at the Opera",
+      "song_file": "music/joker.mp3"
+    }
   }
 ]

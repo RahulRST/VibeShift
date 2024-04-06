@@ -1,19 +1,17 @@
+from datetime import date
 from django.shortcuts import render, get_object_or_404
 
 from player.models import Song
 
-def song_list(request):
-  """
-  View to display a list of all songs.
-  """
+def home(request):
   songs = Song.objects.all()
-  context = {'songs': songs}
-  return render(request, 'music_player/song_list.html', context)
+  search_query = request.GET.get('query', '')
+  if search_query:
+    songs = songs.filter(title__icontains=search_query)
+  context = {'songs': songs, 'search_query': search_query, 'current_year': date.today().year}
+  return render(request, 'music_player/home.html', context)
 
 def song_detail(request, pk):
-  """
-  View to display details of a specific song based on its ID (pk).
-  """
   song = get_object_or_404(Song, pk=pk)
   context = {'song': song}
   return render(request, 'music_player/song_detail.html', context)

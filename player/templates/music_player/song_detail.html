@@ -5,8 +5,11 @@
   <title>{{ song.title }}</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-800 text-white">
-  <div class="container mx-auto px-4 py-4">
+<body class="bg-gray-800 text-white min-h-screen flex flex-col">
+  <nav class="bg-gray-900 shadow-md px-4 py-2 fixed w-full top-0 z-50 flex justify-between items-center">
+    <a href="{% url 'home' %}" class="text-white font-bold text-xl">VibeShift</a>
+  </nav>
+  <div class="container mx-auto px-4 py-20 flex-grow">
     <h1 class="text-2xl font-bold mb-2 text-white">{{ song.title }}</h1>
     {% if song.artist %}
       <p class="text-gray-400 mb-4">By {{ song.artist }}</p>
@@ -16,12 +19,16 @@
     {% endif %}
 
     {% if song.song_file %}
-      <audio controls class="w-full mb-4"> <source src="{{ song.song_file }}" type="audio/mpeg">
+      <audio controls class="w-full mb-4 bg-gray-800 rounded-lg shadow px-4 py-2">
+        <source src="{{ song.song_file }}" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
     {% else %}
       <p class="text-gray-400">Song file not available.</p>
     {% endif %}
   </div>
+  <footer class="bg-gray-900 text-gray-400 text-center py-4">
+    <p>&copy; {{ year }} VibeShift</p>
+  </footer>
 </body>
 </html>
