@@ -19,6 +19,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_URL = '/music/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'music')
 
+SEARCH_URL = '/search/'
+SEARCH_ROOT = os.path.join(BASE_DIR, 'search')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/

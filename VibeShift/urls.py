@@ -15,14 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
 from django.urls import path, include
 
 from django.conf.urls.static import static
 from VibeShift import settings
-from player import views
 
 urlpatterns = [
-  path('', include('player.urls')),  # Include app URLs with a prefix 'music/'
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+  path('', include('player.urls')),
+  
+] + static(settings.SEARCH_URL, document_root=settings.SEARCH_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

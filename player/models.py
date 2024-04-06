@@ -11,3 +11,8 @@ class Song(models.Model):
     artist = models.CharField(max_length=255, blank=True)
     album = models.CharField(max_length=255, blank=True)
     song_file = models.CharField(max_length=250, blank=True)
+
+class WatchLater(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+

@@ -9,7 +9,7 @@
     <nav class="bg-gray-900 shadow-md px-4 py-2 fixed w-full top-0 z-50 flex justify-between items-center">
         <a href="{% url 'home' %}" class="text-white font-bold text-xl">VibeShift</a>
         {% if user.is_authenticated %}
-          <a href="" class="text-white hover:text-gray-400">{{ user.username }}</a>
+          <a href="{% url 'watchlater' %}" class="text-white hover:text-gray-400">{{ user.username }}</a>
           <a href="{% url 'logout' %}" class="text-white hover:text-gray-400">Logout</a>
         {% else %}
           <a href="{% url 'login' %}" class="text-white hover:text-gray-400">Login</a>
@@ -34,13 +34,20 @@
             <source src="{{ song.song_file }}" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
+          <form 
+            action="{% url 'addtowatchlater' song.id %}"
+            method="post">
+            {% csrf_token %}
+            <button type="submit" class="text-white hover:text-gray-400 px-3 py-1 bg-blue-500 rounded-full font-medium">Add to Watch
+            Later</button>
+          </form>
         </div>
       {% endfor %}
     </div>
   </div>
   <footer class="bg-gray-900 text-gray-400 text-center py-4 flex justify-center flex flex-col gap-x-4 items-center">
     <a href="{% url 'about' %}">About Us</a>  
-    <p>&copy; {{ year }} VibeShift</p> 
+    <p>&copy; {{ current_year }} VibeShift</p> 
   </footer>
 </body>
 </html>
