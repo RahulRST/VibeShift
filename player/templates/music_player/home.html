@@ -8,40 +8,28 @@
 <body class="bg-gray-800 text-white h-screen min-h-screen flex flex-col">
   <nav class="bg-gray-900 shadow-md px-4 py-2 fixed w-full top-0 z-50 flex justify-between items-center">
     <a href="{% url 'home' %}" class="text-white font-bold text-xl">VibeShift</a>
-    <form action="{% url 'search' %}" method="get" class="flex items-center">
+  </nav>
+  <div class="container mx-auto px-4 py-16 flex flex-col items-center justify-center h-full">
+    <h1 class="text-3xl font-bold mb-4 text-white">Welcome to VibeShift</h1>
+    <p class="text-gray-400 mb-8">Listen to your favorite songs</p>
+    <form action="{% url 'search' %}" method="get" class="flex items-center w-full max-w-md mb-8 justify-center">
       <input type="text" name="query" placeholder="Search Songs..." class="bg-gray-800 text-white rounded-full px-4 py-2 focus:outline-none">
       <button type="submit" class="text-white ml-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-        </svg>       
+        </svg>
       </button>
     </form>
-  </nav>
-  <div class="container mx-auto px-4 py-20 mt-16 flex-grow">
-    <h1 class="text-3xl font-bold mb-4 text-white">Welcome to VibeShift</h1>
-    <p class="text-gray-400 mb-8">Listen to your favorite songs</p>
-    {% if search_query %}
-      <h2>Search Results for "{{ search_query }}"</h2>
-      <ul class="list-disc pl-4">
-        {% for song in songs %}
-          <li>
-            <a href="{% url 'song_detail' song.pk %}" class="text-white hover:text-gray-400">{{ song.title }}</a>
-          </li>
-        {% endfor %}
-        {% if not songs %}
-          <p class="text-gray-400">No songs found matching your search.</p>
-        {% endif %}
-      </ul>
-    {% else %}
-      <h2>All Songs</h2>
-      <ul class="list-disc pl-4">
-        {% for song in songs %}
-          <li>
-            <a href="{% url 'song_detail' song.pk %}" class="text-white hover:text-gray-400">{{ song.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+    <div class="flex flex-row flex-wrap gap-4">
+      {% for song in songs %}
+        <div class="w-full p-4 mb-4 bg-gray-700 rounded-lg shadow-md px-4 py-4 flex flex-col justify-between">
+          <h3 class="text-white text-lg font-bold mb-2">{{ song.title }} - {{ song.artist }}</h3>  <p class="text-gray-400 text-sm">{{ song.album }}</p>  <audio controls class="w-full mb-2">
+            <source src="{{ song.song_file }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      {% endfor %}
+    </div>
   </div>
   <footer class="bg-gray-900 text-gray-400 text-center py-4">
     <p>&copy; {{ year }} VibeShift</p>

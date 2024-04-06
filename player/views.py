@@ -10,8 +10,3 @@ def home(request):
     songs = songs.filter(title__icontains=search_query)
   context = {'songs': songs, 'search_query': search_query, 'current_year': date.today().year}
   return render(request, 'music_player/home.html', context)
-
-def song_detail(request, pk):
-  song = get_object_or_404(Song, pk=pk)
-  context = {'song': song}
-  return render(request, 'music_player/song_detail.html', context)
