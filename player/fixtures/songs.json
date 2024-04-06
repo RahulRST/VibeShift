@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "title": "Avengers Theme",
-      "artist": "Queen",
-      "album": "A Night at the Opera",
+      "artist": "Alan Silvestri",
+      "album": "Avengers Assemble",
       "song_file": "music/avengers.mp3"
     }
   },
@@ -15,7 +15,7 @@
     "fields": {
       "title": "We will rock you",
       "artist": "Queen",
-      "album": "A Night at the Opera",
+      "album": "News of the World",
       "song_file": "music/rock.mp3"
     }
   },
@@ -24,8 +24,8 @@
     "pk": 3,
     "fields": {
       "title": "Joker BGM",
-      "artist": "Queen",
-      "album": "A Night at the Opera",
+      "artist": "Hildur Guðnadóttir",
+      "album": "Joker",
       "song_file": "music/joker.mp3"
     }
   }
