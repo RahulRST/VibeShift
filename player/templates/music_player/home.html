@@ -38,8 +38,9 @@
       {% endfor %}
     </div>
   </div>
-  <footer class="bg-gray-900 text-gray-400 text-center py-4">
-    <p>&copy; {{ year }} VibeShift</p>
+  <footer class="bg-gray-900 text-gray-400 text-center py-4 flex justify-center flex flex-col gap-x-4 items-center">
+    <a href="{% url 'about' %}">About Us</a>  
+    <p>&copy; {{ year }} VibeShift</p> 
   </footer>
 </body>
 </html>

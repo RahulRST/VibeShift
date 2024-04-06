@@ -44,3 +44,6 @@ def home(request):
     songs = songs.filter(title__icontains=search_query)
   context = {'songs': songs, 'search_query': search_query, 'current_year': date.today().year}
   return render(request, 'music_player/home.html', context)
+
+def about(request):
+  return render(request, 'music_player/about.html')
