@@ -56,9 +56,19 @@ def logout_view(request):
 def home(request):
   songs = Song.objects.all()
   search_query = request.GET.get('query', '')
+  if(request.user.is_anonymous == False):
+    user = request.user
+    watch_later_songs = WatchLater.objects.filter(user=user)
+  else:
+    watch_later_songs = []
+
+  watch_later_list = []
+
+  for watch_later in watch_later_songs:
+      watch_later_list.append(watch_later.song)
   if search_query:
     songs = songs.filter(title__icontains=search_query)
-  context = {'songs': songs, 'search_query': search_query, 'current_year': date.today().year}
+  context = {'songs': songs, 'search_query': search_query, 'current_year': date.today().year, 'watch_later': watch_later_list}
   return render(request, 'player/home.html', context)
 
 def about(request):
